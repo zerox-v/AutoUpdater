@@ -1,0 +1,18 @@
+﻿<my:WindowBase  xmlns:my="clr-namespace:FSLib.App.AutoUpdater" x:Class="FSLib.App.AutoUpdater.UI.UpdateInfoWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="UpdateInfo" Height="300" Width="500" x:Name="w">
+    <Grid Background="Green">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition  Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="txtSoft" Text="发现新版本,更新程序将自动关闭当前运用程序,如果必要,请保存当前文档!是否现在更新?"></TextBlock>
+        <TextBlock x:Name="txtDes" Grid.Row="1"></TextBlock>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="现在更新" Width="60" Height="30" HorizontalAlignment="Right" Margin="0 0 10 0" Click="Button_Click"></Button>
+            <Button Content="暂不更新" Width="60" Height="30" HorizontalAlignment="Right" Margin="0 0 10 0" Click="Button_Click_1"></Button>
+        </StackPanel>
+    </Grid>
+</my:WindowBase>

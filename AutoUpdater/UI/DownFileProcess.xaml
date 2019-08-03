@@ -1,0 +1,58 @@
+﻿<Window
+      x:Class="AutoUpdater.UI.DownFileProcess"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="软件更新提醒" Height="600" Width="400"
+          WindowStyle="None"
+          Background="Transparent"
+          AllowsTransparency="True"
+          x:Name="w" MouseLeftButtonDown="W_MouseLeftButtonDown">
+
+    <Grid Background="Transparent">
+        <Image Source="/AutoUpdater;component/Image/bg.png"/>
+        <Grid Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="190"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="1" Foreground="#FFF002" FontSize="26" HorizontalAlignment="Center" Text="发现新版本"></TextBlock>
+            <StackPanel Margin="56,40,0,0" Grid.Row="2" Orientation="Horizontal">
+                <TextBlock FontSize="20" Text="最新版本："/>
+                <TextBlock FontSize="20" x:Name="tb_ver" Text="V1.4.5"/>
+            </StackPanel>
+            <StackPanel Margin="56,0,16,0" Grid.Row="3" Orientation="Vertical">
+                <TextBlock Foreground="#666666" FontSize="20" Text="更新内容："/>
+                <ScrollViewer  ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <TextBlock x:Name="txtDes" Text="修复bug若干" FontSize="16" TextWrapping="Wrap" Foreground="#666666" ></TextBlock>
+                </ScrollViewer>
+            </StackPanel>
+            <Grid  Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border Background="#00BBF9" Margin="34,0,0,0" CornerRadius="10" VerticalAlignment="Top" Width="110" Height="45">
+                    <Button Name="btn_update" Style="{StaticResource Btn_Button}"  Foreground="#FFF002" FontSize="22" BorderThickness="0" Background="Transparent" Content="更新" Click="Btn_update_Click" />
+                </Border>
+                <Border Grid.Column="1" Background="#E30000"  Margin="0,0,24,0" CornerRadius="10" VerticalAlignment="Top" Width="110" Height="45">
+                    <Button Name="btn_cancle" Style="{StaticResource Btn_Button}"  Foreground="#FFF" FontSize="22" BorderThickness="0" Background="Transparent" Content="取消" Click="Btn_cancle_Click" />
+                </Border>
+
+            </Grid>
+            <StackPanel Visibility="Hidden" Margin="0,20,0,0" x:Name="ProgressBar" Grid.Row="5">
+                <Border Background="#efefef"  x:Name="bProcess" BorderBrush="Transparent" Width="335" Height="5" BorderThickness="1" HorizontalAlignment="Center">
+                    <Rectangle x:Name="rectProcess" Fill="#00BBF9" Width="69" HorizontalAlignment="Left"></Rectangle>
+                </Border>
+                <TextBlock Margin="5" x:Name="txtProcess" FontSize="24" Text="开始更新程序..." Foreground="#00BBF9" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+        </Grid>
+
+
+
+    </Grid>
+</Window>
