@@ -25,12 +25,13 @@ namespace AutoUpdater
         {
             if (args.Length == 0)
             {
-             
-                 AutoUpdater.App app = new AutoUpdater.App();
-                var resource = Application.LoadComponent(new Uri("../Theme/Style.xaml", UriKind.Relative)) as ResourceDictionary;
-               app.Resources.MergedDictionaries.Add(resource);
-                UI.DownFileProcess downUI = new UI.DownFileProcess();
-                app.Run(downUI);
+
+                //  AutoUpdater.App app = new AutoUpdater.App();
+                // var resource = Application.LoadComponent(new Uri("../Theme/Style.xaml", UriKind.Relative)) as ResourceDictionary;
+                //app.Resources.MergedDictionaries.Add(resource);
+                // UI.DownFileProcess downUI = new UI.DownFileProcess();
+                // app.Run(downUI);
+                return;
             }
             else if (args[0] == "update")
             {
