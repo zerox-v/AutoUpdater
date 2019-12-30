@@ -39,6 +39,7 @@ namespace AutoUpdater.UI
                 this.desc = sDesc;
             }
             this.tb_ver.Text = this.appVersion;
+            this.txtDes.Text = sDesc;
         }
 
         public void DownloadUpdateFile()
