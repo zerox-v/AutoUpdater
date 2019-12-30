@@ -6,6 +6,6 @@ namespace AutoUpdater
 {
     public class Constants
     {
-        public static  string RemoteUrl = "http://upload.ionic.fun/release/";
+        public static readonly string RemoteUrl = "http://upload.ionic.fun/";
     }
 }

@@ -38,6 +38,7 @@ namespace AutoUpdater.UI
             {
                 this.desc = sDesc;
             }
+            this.txtDes.Text = this.desc;
             this.tb_ver.Text = this.appVersion;
             this.txtDes.Text = sDesc;
         }
