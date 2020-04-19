@@ -14,6 +14,7 @@ namespace AutoUpdater.UI
         {
             InitializeComponent();
             this.txtMsg.Text = msg;
+         
         }
 
         private void Btn_update_Click(object sender, RoutedEventArgs e)

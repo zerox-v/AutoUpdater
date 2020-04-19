@@ -6,6 +6,7 @@
           WindowStyle="None"
           Background="Transparent"
           AllowsTransparency="True"
+    Topmost="True"
           x:Name="w" MouseLeftButtonDown="W_MouseLeftButtonDown">
 
     <Grid Background="Transparent">

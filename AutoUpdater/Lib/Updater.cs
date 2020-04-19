@@ -10,6 +10,11 @@ namespace AutoUpdater
     public class Updater
     {
         private static Updater _instance;
+
+        public delegate void ShowUpdateWindow();
+
+        public ShowUpdateWindow ShowUpdateWindowCallBack;
+
         public static Updater Instance
         {
             get
@@ -90,6 +95,7 @@ namespace AutoUpdater
             info.WorkingDirectory = exePath.Substring(0, exePath.LastIndexOf(System.IO.Path.DirectorySeparatorChar));
             updateInfo.Desc = updateInfo.Desc;
             info.Arguments = "update " + Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(CallExeName)) + " " + Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(updateFileDir)) + " " + Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(appDir)) + " " + Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(updateInfo.AppName)) + " " + Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(updateInfo.AppVersion.ToString())) + " " + (string.IsNullOrEmpty(updateInfo.Desc) ? "" : Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(updateInfo.Desc)));
+            ShowUpdateWindowCallBack?.Invoke();
             System.Diagnostics.Process.Start(info);
         }
 

@@ -17,18 +17,18 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="54"/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <Border CornerRadius="5,5,0,0" Background="#00BBF9">
                 <TextBlock Foreground="#fff" Margin="10,0,0,0" HorizontalAlignment="Left" FontSize="16" Text="更新提示" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
             </Border>
             <TextBlock Grid.Row="1" x:Name="txtMsg" Margin="10,10,0,0" TextAlignment="Center" VerticalAlignment="Center" FontSize="18" Text="更新成功是否现在启动？"  ></TextBlock>
             <StackPanel HorizontalAlignment="Right" Grid.Row="2" Orientation="Horizontal">
-                <Border Background="#00BBF9"  Margin="0,0,14,0" CornerRadius="5" VerticalAlignment="Top" Width="90" Height="40">
-                    <Button Name="btn_update" Style="{StaticResource Btn_Button}"  Foreground="#FFF002" FontSize="18" BorderThickness="0" Background="Transparent" Content="立即启动" Click="Btn_update_Click" />
+                <Border Background="#00BBF9"  Margin="0,0,14,0" CornerRadius="5" VerticalAlignment="Top" Width="80" Height="30">
+                    <Button Name="btn_update" Style="{StaticResource Btn_Button}"  Foreground="#FFF002" FontSize="14" BorderThickness="0" Background="Transparent" Content="立即启动" Click="Btn_update_Click" />
                 </Border>
-                <Border Grid.Column="1" Background="#E30000"  Margin="0,0,14,0" CornerRadius="5" VerticalAlignment="Top" Width="90" Height="40">
-                    <Button Name="btn_cancle" Style="{StaticResource Btn_Button}"  Foreground="#FFF" FontSize="18" BorderThickness="0" Background="Transparent" Content="稍后启动" Click="Btn_cancle_Click" />
+                <Border Grid.Column="1" Background="#E30000"  Margin="0,0,14,0" CornerRadius="5" VerticalAlignment="Top" Width="80" Height="30">
+                    <Button Name="btn_cancle" Style="{StaticResource Btn_Button}"  Foreground="#FFF" FontSize="14" BorderThickness="0" Background="Transparent" Content="稍后启动" Click="Btn_cancle_Click" />
                 </Border>
             </StackPanel>
         </Grid>
