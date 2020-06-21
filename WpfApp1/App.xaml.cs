@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoUpdater;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -16,7 +17,7 @@ namespace WpfApp1
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            AutoUpdater.Updater.CheckUpdateStatus();
+            Updater.CheckUpdateStatus();
 
 
         }

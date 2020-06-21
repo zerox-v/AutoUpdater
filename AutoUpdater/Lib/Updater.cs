@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows;
 
 
@@ -33,13 +34,18 @@ namespace AutoUpdater
             {
                 string url = Constants.RemoteUrl + Updater.Instance.CallExeName + "/update.xml";
                 var client = new System.Net.WebClient();
+                AutoUpdater.Lib.File.Write("Log.txt", $"开始获取数据{url}\r\n", FileMode.Append);
                 client.DownloadDataCompleted += (x, y) =>
                 {
                     try
                     {
-                        MemoryStream stream = new MemoryStream(y.Result);
 
+                        AutoUpdater.Lib.File.Write("Log.txt", $"开始读取数据\r\n", FileMode.Append);
+                        MemoryStream stream = new MemoryStream(y.Result);
+                        AutoUpdater.Lib.File.Write("Log.txt", $"读取数据结束\r\n", FileMode.Append);
+                        AutoUpdater.Lib.File.Write("Log.txt", $"开始加载数据\r\n", FileMode.Append);
                         XDocument xDoc = XDocument.Load(stream);
+                        AutoUpdater.Lib.File.Write("Log.txt", $"加载数据结束\r\n", FileMode.Append);
                         UpdateInfo updateInfo = new UpdateInfo();
                         XElement root = xDoc.Element("UpdateInfo");
                         updateInfo.AppName = root.Element("AppName").Value;
@@ -47,12 +53,17 @@ namespace AutoUpdater
                         updateInfo.RequiredMinVersion = root.Element("RequiredMinVersion") == null || string.IsNullOrEmpty(root.Element("RequiredMinVersion").Value) ? null : new Version(root.Element("RequiredMinVersion").Value);
                         updateInfo.Desc = root.Element("Desc").Value;
                         updateInfo.MD5 = Guid.NewGuid();
+                        AutoUpdater.Lib.File.Write("Log.txt",updateInfo.AppName+ "\r\n", FileMode.Append);
 
                         stream.Close();
                         Updater.Instance.StartUpdate(updateInfo);
                     }
-                    catch
-                    { }
+                    catch (Exception ex) {
+                        AutoUpdater.Lib.File.Write("Log.txt",ex.StackTrace, FileMode.Append);
+                        MessageBox.Show(ex.Message);
+                     
+                    }
+                    
                 };
                 client.DownloadDataAsync(new Uri(url));
 
