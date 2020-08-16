@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace AutoUpdater.UI
@@ -22,7 +24,24 @@ namespace AutoUpdater.UI
         public DownFileProcess(string callExeName, string updateFileDir, string appDir, string appName, string appVersion, string desc)
         {
             InitializeComponent();
+            Screen[] screens = Screen.AllScreens;
+            var subScreen = (from o in screens where o.Primary == false select o).ToList<Screen>();
+            if (subScreen.Count > 0)
+            {
+                var subscreen = subScreen[0];
+               var  mswa = subscreen.WorkingArea;
+             
+               
+                this.Left = mswa.Left;
+                this.Top = mswa.Top;
 
+                this.Loaded += (sender, e) =>
+                {
+                    this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                };
+              
+
+            }
             this.callExeName = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(callExeName));
             this.updateFileDir = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(updateFileDir));
             this.appDir = System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(appDir));
