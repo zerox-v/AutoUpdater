@@ -60,7 +60,7 @@ namespace AutoUpdater
                     }
                     catch (Exception ex) {
                         AutoUpdater.Lib.File.Write("Log.txt",ex.StackTrace, FileMode.Append);
-                        MessageBox.Show(ex.Message);
+                       //MessageBox.Show(ex.Message);
                      
                     }
                     
